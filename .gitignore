@@ -2,4 +2,4 @@
 manual.*.txt
 a.out
 .vscode
-*.sh
+# *.sh
