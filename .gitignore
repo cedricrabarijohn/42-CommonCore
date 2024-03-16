@@ -1,0 +1,4 @@
+.prettierrc
+manual.*.txt
+a.out
+.vscode
