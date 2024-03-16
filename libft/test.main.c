@@ -17,7 +17,7 @@ void compare_and_print(const char *function_name, int input, int result1, int re
 void str_compare_and_print(const char *function_name, int input, char *result1, char *result2)
 {
     printf("Test %d, %s = %s , ft_%s = %s ", input, function_name, result1, function_name, result2);
-    if ((result1 == result2))
+    if (strcmp(result1, result2) == 0)
         printf("\033[0;32m [OK] \033[0m\n"); // Green OK
     else
         printf("\033[0;31m [KO] \033[0m\n"); // Red KO
