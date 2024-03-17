@@ -108,8 +108,8 @@ int main(void)
     {
         for (int k = 0; k < MAX_STRINGS; k++)
         {
-            char *buffer = malloc(sizeof(strings[k] + 1));
-            char *buffer2 = malloc(sizeof(strings[k] + 1));
+            char *buffer = malloc(sizeof(strings[k]));
+            char *buffer2 = malloc(sizeof(strings[k]));
 
             buffer = strings[k];
             buffer2 = strings[k];
@@ -122,7 +122,6 @@ int main(void)
 
             str_compare_and_print("memset", i, mem1, mem2);
             str_compare_and_print("memset", i, buffer, buffer2);
-            printf("%s",buffer);
         }
     }
 
@@ -131,8 +130,8 @@ int main(void)
     {
         for (int k = 0; k < MAX_STRINGS; k++)
         {
-            char *buffer = malloc(sizeof(strings[k] + 1));
-            char *buffer2 = malloc(sizeof(strings[k] + 1));
+            char *buffer = malloc(sizeof(strings[k]));
+            char *buffer2 = malloc(sizeof(strings[k]));
 
             buffer = strings[k];
             buffer2 = strings[k];
@@ -141,6 +140,5 @@ int main(void)
             str_compare_and_print("ft_bzero", i, buffer, buffer2);
         }
     }
-
     return (0);
 }
