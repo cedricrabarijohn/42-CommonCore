@@ -1,18 +1,31 @@
-#ifndef LIBFT_H
-#define LIBFT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: trabarij <marvin@42.fr>                    +#+ +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/16 17:44:17 by trabarij          #+#    #+#             */
+/*   Updated: 2024/03/16 17:44:17 by trabarij         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 // Libc functions
 
-int ft_islapha(int c);
-int ft_isdigit(int c);
-int ft_isalnum(int c);
-int ft_isascii(int c);
-int ft_isprint(int c);
-size_t ft_strlen(const char *s);
+int		ft_islapha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+size_t	ft_strlen(const char *s);
+
 // void *ft_memset();
 // void *ft_memset(void *s, int c, size_t n);
 
