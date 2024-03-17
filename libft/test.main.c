@@ -104,19 +104,41 @@ int main(void)
     }
 
     // memset
-    for (int i = 0; i < 127; i++)
+    for (int i = 0; i < MAX_LENGTH; i++)
     {
-        if (ft_isalnum(i))
+        for (int k = 0; k < MAX_STRINGS; k++)
         {
-            char *buffer = malloc(i + 1);
-            char *buffer2 = malloc(i + 1);
-            buffer[49] = 'A';
-            buffer2[49] = 'A';
-            char a = i;
-            memset(buffer, a, i);
-            ft_memset(buffer2, a, i);
+            char *buffer = malloc(sizeof(strings[k] + 1));
+            char *buffer2 = malloc(sizeof(strings[k] + 1));
 
+            buffer = strings[k];
+            buffer2 = strings[k];
+
+            char *mem1 = malloc(sizeof(buffer));
+            char *mem2 = malloc(sizeof(buffer2));
+            char a = i;
+            mem1 = memset(buffer, a, i);
+            mem2 = ft_memset(buffer2, a, i);
+
+            str_compare_and_print("memset", i, mem1, mem2);
             str_compare_and_print("memset", i, buffer, buffer2);
+            printf("%s",buffer);
+        }
+    }
+
+    // bzero
+    for (int i = 0; i < MAX_LENGTH; i++)
+    {
+        for (int k = 0; k < MAX_STRINGS; k++)
+        {
+            char *buffer = malloc(sizeof(strings[k] + 1));
+            char *buffer2 = malloc(sizeof(strings[k] + 1));
+
+            buffer = strings[k];
+            buffer2 = strings[k];
+            bzero(buffer, i);
+            ft_bzero(buffer2, i);
+            str_compare_and_print("ft_bzero", i, buffer, buffer2);
         }
     }
 
