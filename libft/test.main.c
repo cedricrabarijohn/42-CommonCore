@@ -37,7 +37,6 @@ void str_compare_and_print(const char *function_name, int input, char *result1, 
     else
     {
         printf("Test %d - %s: \033[0;31m [KO] \033[0m\n", input, function_name);
-        // printf("\033[0;31m Test %d, %s = %s , ft_%s = %s \033[0m", input, function_name, result1, function_name, result2);
     }
     printf("Expected output : %s \n", result1);
     printf("Output : %s \n", result2);
@@ -66,79 +65,110 @@ char strings[MAX_STRINGS][MAX_LENGTH] = {
     "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
     "I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world."};
 
-int main(void)
+void compareIsAlpha()
 {
     for (int i = 0; i < 200; i++)
     {
         compare_and_print("isalpha", i, isalpha(i), ft_islapha(i));
-        compare_and_print("isdigit", i, isdigit(i), ft_isdigit(i));
-        compare_and_print("isalnum", i, isalnum(i), ft_isalnum(i));
-        compare_and_print("isascii", i, isascii(i), ft_isascii(i));
-        compare_and_print("isprint", i, isprint(i), ft_isprint(i));
     }
+}
 
+void compareIsDigit()
+{
     for (int i = 0; i < 200; i++)
     {
         compare_and_print("isdigit", i, isdigit(i), ft_isdigit(i));
     }
+}
 
+void compareIsAlnum()
+{
     for (int i = 0; i < 200; i++)
     {
         compare_and_print("isalnum", i, isalnum(i), ft_isalnum(i));
     }
+}
 
+void compareIsAscii()
+{
     for (int i = 0; i < 200; i++)
     {
         compare_and_print("isascii", i, isascii(i), ft_isascii(i));
     }
+}
 
+void compareIsPrint()
+{
     for (int i = 0; i < 200; i++)
     {
         compare_and_print("isprint", i, isprint(i), ft_isprint(i));
     }
+}
 
+void compareStrlen()
+{
     // ft_strlen
     for (int i = 0; i < MAX_STRINGS; i++)
     {
         compare_and_print("strlen", i, strlen(strings[i]), ft_strlen(strings[i]));
     }
+}
 
+void compareMemset()
+{
     // memset
-    for (int i = 0; i < MAX_LENGTH; i++)
+    char *buffer = malloc(MAX_LENGTH * sizeof(char));
+    char *buffer2 = malloc(MAX_LENGTH * sizeof(char));
+
+    for (int i = 0; i < MAX_STRINGS; i++)
     {
-        for (int k = 0; k < MAX_STRINGS; k++)
+        for (int k = 0; k < MAX_LENGTH; k++)
         {
-            char *buffer = malloc(sizeof(strings[k]));
-            char *buffer2 = malloc(sizeof(strings[k]));
+            memcpy(buffer, strings[i], MAX_LENGTH);
+            memcpy(buffer2, strings[i], MAX_LENGTH);
 
-            buffer = strings[k];
-            buffer2 = strings[k];
+            char a = '.';
+            memset(buffer, a, k);
+            ft_memset(buffer2, a, k);
 
-            char *mem1 = malloc(sizeof(buffer));
-            char *mem2 = malloc(sizeof(buffer2));
-            char a = i;
-            mem1 = memset(buffer, a, i);
-            mem2 = ft_memset(buffer2, a, i);
-
-            str_compare_and_print("memset", i, mem1, mem2);
             str_compare_and_print("memset", i, buffer, buffer2);
         }
     }
 
-    // bzero
-    for (int i = 0; i < MAX_LENGTH; i++)
-    {
-        for (int k = 0; k < MAX_STRINGS; k++)
-        {
-            char *buffer = malloc(sizeof(strings[k]));
-            char *buffer2 = malloc(sizeof(strings[k]));
+    free(buffer);
+    free(buffer2);
+}
 
-            buffer = strings[k];
-            buffer2 = strings[k];
-            bzero(buffer, i);
-            ft_bzero(buffer2, i);
+void compareBzero()
+{
+    char *buffer = malloc(MAX_LENGTH * sizeof(char));
+    char *buffer2 = malloc(MAX_LENGTH * sizeof(char));
+    for (int i = 0; i < MAX_STRINGS; i++)
+    {
+        for (int k = 0; k < MAX_LENGTH; k++)
+        {
+            memcpy(buffer, strings[i], MAX_LENGTH);
+            memcpy(buffer2, strings[i], MAX_LENGTH);
+
+            bzero(buffer, k);
+            ft_bzero(buffer2, k);
+
             str_compare_and_print("ft_bzero", i, buffer, buffer2);
         }
     }
+    free(buffer);
+    free(buffer2);
+}
+
+int main(void)
+{
+    compareIsAlpha();
+    compareIsDigit();
+    compareIsAlnum();
+    compareIsAscii();
+    compareIsPrint();
+    compareStrlen();
+    compareMemset();
+    compareBzero();
     return (0);
 }
