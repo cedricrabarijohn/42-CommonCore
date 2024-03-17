@@ -160,15 +160,35 @@ void compareBzero()
     free(buffer2);
 }
 
+void compareMemCpy()
+{
+    char *buffer = malloc(MAX_LENGTH * sizeof(char));
+    char *buffer2 = malloc(MAX_LENGTH * sizeof(char));
+
+    for (int i = 0; i < MAX_STRINGS; i++)
+    {
+        for (int k = 0; k < MAX_LENGTH; k++)
+        {
+            memcpy(buffer, strings[i], MAX_LENGTH);
+            ft_memcpy(buffer2, strings[i], MAX_LENGTH);
+            str_compare_and_print("memcpy", i, buffer, buffer2);
+        }
+    }
+
+    free(buffer);
+    free(buffer2);
+}
+
 int main(void)
 {
-    compareIsAlpha();
-    compareIsDigit();
-    compareIsAlnum();
-    compareIsAscii();
-    compareIsPrint();
-    compareStrlen();
-    compareMemset();
-    compareBzero();
+    // compareIsAlpha();
+    // compareIsDigit();
+    // compareIsAlnum();
+    // compareIsAscii();
+    // compareIsPrint();
+    // compareStrlen();
+    // compareMemset();
+    // compareBzero();
+    compareMemCpy();
     return (0);
 }
