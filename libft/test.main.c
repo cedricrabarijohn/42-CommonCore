@@ -19,20 +19,29 @@
 
 void compare_and_print(const char *function_name, int input, int result1, int result2)
 {
-    printf("Test %d, %s = %d , ft_%s = %d ", input, function_name, result1, function_name, result2);
     if ((result1 == result2))
-        printf("\033[0;32m [OK] \033[0m\n"); // Green OK
+    {
+        printf("Test %d - %s: \033[0;32m [OK] \033[0m\n", input, function_name); // Green OK
+    }
     else
-        printf("\033[0;31m [KO] \033[0m\n"); // Red KO
+        printf("Test %d - %s: \033[0;31m [KO] \033[0m\n", input, function_name);
+    printf("Expected output : %i \n", result1);
+    printf("Output : %i \n", result2);
+    printf("-------------------\n");
 }
 
 void str_compare_and_print(const char *function_name, int input, char *result1, char *result2)
 {
-    printf("Test %d, %s = %s , ft_%s = %s ", input, function_name, result1, function_name, result2);
     if (strcmp(result1, result2) == 0)
-        printf("\033[0;32m [OK] \033[0m\n"); // Green OK
+        printf("Test %d - %s: \033[0;32m [OK] \033[0m\n", input, function_name); // Green OK
     else
-        printf("\033[0;31m [KO] \033[0m\n"); // Red KO
+    {
+        printf("Test %d - %s: \033[0;31m [KO] \033[0m\n", input, function_name);
+        // printf("\033[0;31m Test %d, %s = %s , ft_%s = %s \033[0m", input, function_name, result1, function_name, result2);
+    }
+    printf("Expected output : %s \n", result1);
+    printf("Output : %s \n", result2);
+    printf("-------------------\n");
 }
 
 char strings[MAX_STRINGS][MAX_LENGTH] = {
@@ -66,26 +75,49 @@ int main(void)
         compare_and_print("isalnum", i, isalnum(i), ft_isalnum(i));
         compare_and_print("isascii", i, isascii(i), ft_isascii(i));
         compare_and_print("isprint", i, isprint(i), ft_isprint(i));
-        printf("---------------------------------------------------------------\n");
+    }
+
+    for (int i = 0; i < 200; i++)
+    {
+        compare_and_print("isdigit", i, isdigit(i), ft_isdigit(i));
+    }
+
+    for (int i = 0; i < 200; i++)
+    {
+        compare_and_print("isalnum", i, isalnum(i), ft_isalnum(i));
+    }
+
+    for (int i = 0; i < 200; i++)
+    {
+        compare_and_print("isascii", i, isascii(i), ft_isascii(i));
+    }
+
+    for (int i = 0; i < 200; i++)
+    {
+        compare_and_print("isprint", i, isprint(i), ft_isprint(i));
     }
 
     // ft_strlen
     for (int i = 0; i < MAX_STRINGS; i++)
     {
         compare_and_print("strlen", i, strlen(strings[i]), ft_strlen(strings[i]));
-        printf("---------------------------------------------------------------\n");
     }
 
     // memset
-    for (int i = 0; i < MAX_STRINGS; i++)
+    for (int i = 0; i < 127; i++)
     {
-        char buffer[20];
-        char buffer2[20];
+        if (ft_isalnum(i))
+        {
+            char *buffer = malloc(i + 1);
+            char *buffer2 = malloc(i + 1);
+            buffer[49] = 'A';
+            buffer2[49] = 'A';
+            char a = i;
+            memset(buffer, a, i);
+            ft_memset(buffer2, a, i);
 
-        memset(buffer, 'B', 20);
-        memset(buffer2, 'B', 20);
-
-        str_compare_and_print("memset", i, buffer, buffer2);
+            str_compare_and_print("memset", i, buffer, buffer2);
+        }
     }
 
     return (0);
