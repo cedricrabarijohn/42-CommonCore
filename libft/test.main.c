@@ -169,9 +169,10 @@ void compareMemCpy()
     {
         for (int k = 0; k < MAX_LENGTH; k++)
         {
-            if(strings[i]) {
-                memcpy(buffer, strings[i], k );
-                ft_memcpy(buffer2, strings[i], k );
+            if (strings[i])
+            {
+                memcpy(buffer, strings[i], k);
+                ft_memcpy(buffer2, strings[i], k);
                 str_compare_and_print("memcpy", i, buffer, buffer2);
             }
         }
@@ -190,9 +191,12 @@ void compareMemMove()
     {
         for (int k = 0; k < MAX_LENGTH; k++)
         {
-            memmove(buffer, strings[i], MAX_LENGTH);
-            memmove(buffer2, strings[i], MAX_LENGTH);
-            str_compare_and_print("memmove", i, buffer, buffer2);
+            if (strings[i])
+            {
+                memmove(buffer, strings[i], k);
+                ft_memmove(buffer2, strings[i], k);
+                str_compare_and_print("memmove", i, buffer, buffer2);
+            }
         }
     }
 }
@@ -207,7 +211,7 @@ int main(void)
     // compareStrlen();
     // compareMemset();
     // compareBzero();
-    compareMemCpy();
-    // compareMemMove();
+    // compareMemCpy();
+    compareMemMove();
     return (0);
 }
