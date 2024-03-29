@@ -6,7 +6,7 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:18:31 by trabarij          #+#    #+#             */
-/*   Updated: 2024/03/29 18:16:40 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:33:53 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 // Additional functions
 
 // Others
