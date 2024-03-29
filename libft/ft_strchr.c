@@ -6,7 +6,7 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:06:59 by trabarij          #+#    #+#             */
-/*   Updated: 2024/03/24 17:15:26 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/03/29 11:16:38 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c)
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = (char *)s;
+	while (str[i])
 	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
+		if (str[i] == (char)c)
+			return (&str[i]);
+		i++;
 	}
-	return ((char *)s);
+	if (((char)c) == '\0')
+		return (&str[i]);
+	return (NULL);
 }
