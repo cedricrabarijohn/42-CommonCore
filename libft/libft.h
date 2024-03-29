@@ -6,7 +6,7 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:18:31 by trabarij          #+#    #+#             */
-/*   Updated: 2024/03/29 18:14:58 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:16:40 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdlib.h>
 // Libc functions
 
 int		ft_isalpha(int c);
