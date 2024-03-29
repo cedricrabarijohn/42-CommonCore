@@ -6,7 +6,7 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:18:31 by trabarij          #+#    #+#             */
-/*   Updated: 2024/03/24 17:08:48 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/03/29 12:49:07 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // Additional functions
 
 // Others
