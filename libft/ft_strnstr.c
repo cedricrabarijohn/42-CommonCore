@@ -6,7 +6,7 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:13:19 by trabarij          #+#    #+#             */
-/*   Updated: 2024/03/29 16:43:21 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/03/31 12:03:27 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	tmp_big = (char *)big;
 	tmp_little = (char *)little;
 	size_little = (size_t)ft_strlen(tmp_little);
-	if (!big && !big[0])
+	if (!big && !(*big))
 		return (NULL);
 	if (size_little == 0)
 		return ((char *)big);
