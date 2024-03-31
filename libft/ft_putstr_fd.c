@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/31 11:47:11 by trabarij          #+#    #+#             */
+/*   Updated: 2024/03/31 11:57:47 by trabarij         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void    ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s)
-    {
-        ft_putchar_fd(*s, fd);
-        s++;
-    }
+	{
+		ft_putchar_fd(*s, fd);
+		s++;
+	}
 }
