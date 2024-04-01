@@ -6,7 +6,7 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:15:52 by trabarij          #+#    #+#             */
-/*   Updated: 2024/04/01 12:15:41 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:45:57 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	st_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
-		return (2048);
+		return (1);
 	return (0);
 }
 

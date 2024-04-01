@@ -6,11 +6,18 @@
 /*   By: trabarij <trabarij@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:55:06 by trabarij          #+#    #+#             */
-/*   Updated: 2024/03/29 17:36:07 by trabarij         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:46:10 by trabarij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	st_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -32,7 +39,7 @@ int	ft_atoi(const char *nptr)
 			mul = -1;
 		i++;
 	}
-	while (ft_isdigit((int)str[i]))
+	while (st_isdigit((int)str[i]))
 	{
 		res = res * 10 + (str[i] - '0');
 		i++;
