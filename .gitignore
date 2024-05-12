@@ -3,3 +3,4 @@ manual.*.txt
 a.out
 .vscode
 # *.sh
+get_next_line/Makefile
