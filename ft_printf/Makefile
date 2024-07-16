@@ -1,40 +1,25 @@
-# Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# Library and executable
-LIB = libftprintf.a
-EXEC = test_ft_printf
+NAME = libftprintf.a
 
-# Source files and object files
 SRCS = ft_printf.c ft_putchar.c ft_puthex.c ft_putnbr.c ft_putunbr.c ft_putptr.c ft_putstr.c
 OBJS = $(SRCS:.c=.o)
 
-# Test file
-TEST_SRC = test_ft_printf.c
-
-# Rule to create the library
-$(LIB): $(OBJS)
+$(NAME): $(OBJS)
 	ar rcs $@ $^
 
-# Rule to create the executable
-$(EXEC): $(TEST_SRC) $(LIB)
-	$(CC) $(CFLAGS) -o $@ $(TEST_SRC) -L. -lftprintf
+all: $(NAME)
 
-# Rule to compile object files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up object files and executable
 clean:
-	rm -f $(OBJS) $(EXEC)
+	rm -f $(OBJS)
 
-# Clean up everything
 fclean: clean
-	rm -f $(LIB)
+	rm -f $(NAME)
 
-# Rebuild everything
-re: fclean $(LIB) $(EXEC)
+re: fclean $(NAME)
 
-# Phony targets
 .PHONY: clean fclean re
