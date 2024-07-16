@@ -31,5 +31,6 @@ int	main(void)
 	close(fd1);
 	close(fd2);
 	close(fd3);
+	free(line);
 	return (0);
 }
