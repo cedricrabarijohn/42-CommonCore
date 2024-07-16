@@ -1,22 +1,26 @@
 #include "ft_printf.h"
 
-static int handle_format(va_list args, char format)
-{
+int handle_format(va_list args, char specifier) {
     int len = 0;
-    if (format == 'c')
+
+    if (specifier == 'c') {
         len += ft_putchar(va_arg(args, int));
-    else if (format == 's')
+    } else if (specifier == 's') {
         len += ft_putstr(va_arg(args, char *));
-    else if (format == 'd' || format == 'i')
+    } else if (specifier == 'd' || specifier == 'i') {
         len += ft_putnbr(va_arg(args, int));
-    else if (format == 'x')
+    } else if (specifier == 'u') {
+        len += ft_putunbr(va_arg(args, unsigned int));
+    } else if (specifier == 'x') {
         len += ft_puthex(va_arg(args, unsigned int), 0);
-    else if (format == 'X')
+    } else if (specifier == 'X') {
         len += ft_puthex(va_arg(args, unsigned int), 1);
-    else if (format == 'p')
+    } else if (specifier == 'p') {
+        len += ft_putstr("0x");
         len += ft_putptr(va_arg(args, unsigned long long));
-    else if (format == '%')
+    } else if (specifier == '%') {
         len += ft_putchar('%');
+    }
     return len;
 }
 
