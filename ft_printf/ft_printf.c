@@ -17,9 +17,10 @@ int	handle_p(va_list args)
 	int					len;
 	unsigned long long	ptr;
 
+	len = 0;
 	ptr = va_arg(args, unsigned long long);
 	if (ptr == 0)
-		len += ft_putstr("nil");
+		len += ft_putstr("(nil)");
 	else
 	{
 		len += ft_putstr("0x");
