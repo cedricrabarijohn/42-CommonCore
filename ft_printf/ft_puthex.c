@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 
-int ft_puthex(unsigned int n, int uppercase) {
+int ft_puthex(unsigned int n, int uppercase)
+{
     char *base;
     int len = 0;
 
