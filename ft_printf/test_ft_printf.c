@@ -10,7 +10,6 @@ int main() {
     ft_printf("String: %s\n", "Hello, World!");
     printf("String: %s\n", "Hello, World!");
 
-    // p
     // Test integers
     ft_printf("Integer: %d\n", 42);
     printf("Integer: %d\n", 42);
