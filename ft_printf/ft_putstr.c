@@ -18,8 +18,9 @@ int	ft_putstr(char *s)
 
 	len = 0;
 	if (!s)
-		return ft_putstr("(null)");
-	while (*s) {
+		return (ft_putstr("(null)"));
+	while (*s)
+	{
 		len += ft_putchar(*s++);
 	}
 	return (len);
