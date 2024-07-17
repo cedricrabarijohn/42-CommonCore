@@ -1,29 +1,37 @@
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
+CC					=		gcc
 
-PROGRAM_NAME = push_swap
-AR_NAME = $(PROGRAM_NAME).a
-C_PROGRAM_ENTRY = $(PROGRAM_NAME).c
-SRCS = utils.c
-OBJS = $(SRCS:.c=.o)
+FLAGS 				=		-Wall -Wextra -Werror
 
-$(PROGRAM_NAME): $(AR_NAME) $(C_PROGRAM_ENTRY)
-	$(CC) $(FLAGS) $^ -o $@
+PROGRAM_NAME		=		push_swap
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+AR_NAME				=		$(PROGRAM_NAME).a
 
-$(AR_NAME): $(OBJS)
-	ar rcs $@ $^
+C_PROGRAM_ENTRY 	= 		main.c
 
-all: $(PROGRAM_NAME)
+SRCS 				= 		utils.c \
+							push_swap.c 
+							
+OBJS 				= 		$(SRCS:.c=.o)
 
-clean:
-	rm -f $(OBJS) $(AR_NAME)
+RM					=		rm -rf
 
-fclean: clean
-	rm -f $(PROGRAM_NAME)
+$(PROGRAM_NAME)		: 		$(C_PROGRAM_ENTRY) $(AR_NAME)
+							$(CC) $(FLAGS) $^ -o $@
 
-re: fclean all
+%.o					: 		%.c
+							$(CC) $(FLAGS) -c $< -o $@
 
-.PHONY: all clean fclean re
+$(AR_NAME)			: 		$(OBJS)
+							ar rcs $@ $^
+
+all					: 		$(PROGRAM_NAME)
+
+clean				:
+							$(RM) $(OBJS) $(AR_NAME)
+
+fclean				: 		clean
+							$(RM) $(PROGRAM_NAME)
+
+re					:		fclean all
+
+.PHONY				: 		all clean fclean re
