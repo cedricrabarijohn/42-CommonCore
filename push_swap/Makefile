@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS =
+FLAGS = -Wall -Wextra -Werror
 
 PROGRAM_NAME = push_swap
 AR_NAME = $(PROGRAM_NAME).a
