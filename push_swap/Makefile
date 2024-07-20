@@ -8,8 +8,7 @@ AR_NAME				=		$(PROGRAM_NAME).a
 
 C_PROGRAM_ENTRY 	= 		main.c
 
-SRCS 				= 		utils.c \
-							push_swap.c 
+SRCS 				= 		push_swap.c 
 							
 OBJS 				= 		$(SRCS:.c=.o)
 
