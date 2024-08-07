@@ -1,7 +1,11 @@
 #include "push_swap.h"
+#include "libft/libft.h"
 
-int main(int argc, char **argv)
+size_t main(size_t argc, char **argv)
 {
-	push_swap(argc, argv);
+	if (argc > 1)
+	{
+		push_swap(argc ,argv);
+	}
 	return (0);
 }

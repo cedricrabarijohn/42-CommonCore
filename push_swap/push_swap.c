@@ -1,18 +1,25 @@
 #include "push_swap.h"
+#include "libft/libft.h"
 
-void push_swap(int args_count ,char **args)
+void push_swap(size_t count, char **numbers_char)
 {
-	int	i;
-	
+	size_t	i;
+	size_t	*err;
+	size_t	*a_pile;
+	size_t	*b_pile;
 
-	i = 1;
-	printf("[PUSH_SWAP]\nargs count = %d\n", args_count - 1);
-	if (args_count > 1)
+	err = 0;
+	i = 0;
+	if (count > 1)
 	{
-		while(args[i])
+		a_pile = malloc((count - 1) * sizeof(size_t));
+		if (a_pile == NULL)
+			return (free(a_pile));
+		while (i < count - 1)
 		{
-			printf("arg[%d] : %s\n", i, args[i]);
+			a_pile[i] = ft_atoi(numbers_char[i + 1]);
 			i++;
 		}
+		free(a_pile);
 	}
 }
